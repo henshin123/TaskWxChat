@@ -1,0 +1,30 @@
+<scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}">
+  <cu-custom bgColor="bg-gradual-pink">
+    <view slot="content">今日任务</view>
+  </cu-custom>
+  <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> 任务列表
+    </view>
+  </view>
+   <view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}">
+    <view class="cu-item"  wx:for="{{tastmodel}}" wx:key="_id">
+      <button class="cu-btn content"data-id="{{item._id}}" bindtap="onlineClick">
+        <image src="/images/Task.png" class="png" mode="aspectFit"></image>
+        <text class="text-grey">{{item.data.title}}</text>
+      </button>
+       <view class="action">
+          <view wx:if="{{item.data.isfinish}}">
+            <view class="cu-avatar round sm" style="background-image:url({{imgfinish}});"></view>
+          </view>
+          <view wx:else>
+             <view class="cu-avatar round sm" style="background-image:url({{imgunfinish}});"></view>
+          </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view class='cu-load load-modal' wx:if="{{loadModal}}">
+  <image src='/images/loading.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>

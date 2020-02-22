@@ -1,0 +1,42 @@
+<view class='cu-custom'>
+  <view class="cu-bar fixed bg-shadeTop" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <view class='content' style='top:{{StatusBar}}px;'>历史任务</view>
+  </view>
+</view>
+<swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{4}}" wx:key>
+    <image src="https://image.weilanwl.com/img/4x3-{{index+1}}.jpg" mode='aspectFill'></image>
+  </swiper-item>
+</swiper>
+<view class="VerticalBox">
+  <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:calc(100vh - 375rpx)">
+    <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{list}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+      {{item.date}}
+    </view>
+  </scroll-view>
+    <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 500rpx)" >
+      <view class="padding-top padding-lr">
+        <view class='cu-bar solid-bottom bg-white'>
+         <view class='action'>
+            <text class='cuIcon-title text-green'></text> {{modelDate}} 
+          </view>
+        </view>
+        <view class="cu-list menu-avatar" wx:for="{{modellist}}" wx:key bindtap="change" data-id="{{item._id}}">
+          <view class="cu-item">
+            <view class="cu-avatar round mg" style="background-image:url({{imgbase64}});"></view>
+            <view class="content">
+               <view class="text-grey">{{item.data.title}}</view>
+            <view class="text-gray text-sm flex">
+              <text class="text-cut">{{item.data.taskdetails}}
+              </text>
+            </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+</view>
+<view class='cu-load load-modal' wx:if="{{loadModal}}">
+  <image src='/images/loading.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>

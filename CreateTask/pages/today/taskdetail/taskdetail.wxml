@@ -1,0 +1,53 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">{{model.title}}</view>
+</cu-custom>
+<view>
+	<view class="cu-form-group margin-top">
+		<view class="title">任务标题</view>
+		<text name="title">{{model.title}}</text>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">发布人</view>
+		<text name="owner">{{model.owner}}</text>
+	</view>
+  	<view class="cu-form-group">
+		<view class="title">发布日期</view>
+  	<text name="releasedate">{{model.releasedate}}</text>
+	</view>
+	<view class="cu-form-group margin-top">
+    <view class="title">任务细节</view>
+		<text name="taskdetails">{{model.taskdetails}}</text>
+	</view>
+  <view class="cu-form-group margin-top">
+    <view class="title">备注</view>
+		<text name="remarks">{{model.remarks}}</text>
+	</view>
+  <view class="padding">
+  <button class="cu-btn block line-blue margin-tb-sm lg" bindtap="showModal" data-target="DialogModal1">完成</button>
+</view>
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">确认完成嘛？</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      发布后若想修改请在历史任务中进行修改
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hideModal" >取消</button>
+        <button class="cu-btn bg-green margin-left" bindtap="changeModel">确定</button>
+      </view>
+    </view>
+  </view>
+</view>
+</view>
+<view class='cu-load load-modal' wx:if="{{loadModal}}">
+  <image src='/images/loading.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>
+

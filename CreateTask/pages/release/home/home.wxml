@@ -1,0 +1,55 @@
+<cu-custom bgColor="bg-gradual-blue">
+	<view slot="content">发布任务</view>
+</cu-custom>
+<form bindsubmit="formSubmit">
+	<view class="cu-form-group margin-top">
+		<view class="title">任务标题</view>
+		<input name="title" placeholder="尽量简短" bindinput=""></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">发布人</view>
+		<input name="owner" placeholder="自己的姓名"></input>
+	</view>
+  	<view class="cu-form-group">
+		<view class="title">发布日期</view>
+		<picker name="releasedate" mode="date" value="{{date}}" start="2019-09-01" end="2022-09-01" bindchange="DateChange">
+			<view class="picker">
+				{{date}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group margin-top">
+    <view class="title">任务细节</view>
+		<textarea name="taskdetails" maxlength="-1" disabled="{{modalName!=null}}" placeholder="填写相应的任务细节"></textarea>
+	</view>
+  <view class="cu-form-group margin-top">
+    <view class="title">备注</view>
+		<textarea name="remarks" maxlength="-1" disabled="{{modalName!=null}}"  placeholder="备注"></textarea>
+	</view>
+  <view class="padding">
+  <button class="cu-btn block line-blue margin-tb-sm lg" bindtap="showModal" data-target="DialogModal1">发布</button>
+</view>
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">确认发布嘛？</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      发布后若想修改请在历史任务中进行修改
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hideModal" >取消</button>
+        <button class="cu-btn bg-green margin-left" formType="submit">确定</button>
+      </view>
+    </view>
+  </view>
+</view>
+</form>
+<view class='cu-load load-modal' wx:if="{{loadModal}}">
+  <image src='/images/loading.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>

@@ -1,0 +1,30 @@
+<today wx:if="{{PageCur=='today'}}"></today>
+<history wx:if="{{PageCur=='history'}}"></history>
+<release wx:if="{{PageCur=='release'}}"></release>
+<about wx:if="{{PageCur=='about'}}"></about>
+<view class="cu-bar tabbar bg-white shadow foot">
+  <view class="action" bindtap="NavChange" data-cur="today">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/today{{PageCur=='today'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='today'?'text-green':'text-gray'}}">今日任务</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="history">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/history{{PageCur=='history'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='history'?'text-green':'text-gray'}}">历史任务</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="release">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/release{{PageCur=='release'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='release'?'text-green':'text-gray'}}">发布任务</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="about">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/about{{PageCur=='about'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='about'?'text-green':'text-gray'}}">关于</view>
+  </view>
+</view>

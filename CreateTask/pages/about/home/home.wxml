@@ -1,0 +1,13 @@
+<cu-custom bgColor="bg-gradual-green">
+  <view slot="content">关于</view>
+</cu-custom>
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+  <view class='text-center margin-bottom text-lg  text-grey'>关于此应用</view>
+  <view class='text-content'>
+    <view>Hi！朱龙昊的亲爱的家人们</view>
+    <view class='margin-top-sm'>这个软件编写的目的是服务于我们幸福的大家庭的，大家有什么意见和建议尽管和我提，我不一定满足大家，一切看我心情~</view>
+    <view class='margin-top-sm'>此应用主要是用于父母和孩子之间传递亲情，我们虽然相隔甚远，但是我们的亲情是无法被距离阻隔的，父亲母亲可以每天提醒孩子今天别忘了干什么，要干什么，让我们的亲情升温，让距离不再成为困难</view>
+    <view class='margin-top-sm'>爱你们的帅气的儿子~</view>
+    <view class='margin-top-sm'>更多功能敬请期待！</view>
+  </view>
+</view>

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+        "today": "/pages/today/home/home",
+        "history": "/pages/history/home/home",
+        "release": "/pages/release/home/home",
+        "about": "/pages/about/home/home"
+  }
+}
